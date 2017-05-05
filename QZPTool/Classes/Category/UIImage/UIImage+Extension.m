@@ -451,4 +451,51 @@
     UIGraphicsEndImageContext();
     return newImage;
 }
+
++ (UIImage *)imageForColors:(NSArray *)colorArray withSize:(CGSize)size direction:(NSInteger)direction {
+    NSMutableArray *arr=[NSMutableArray  array];
+    for (UIColor *color in colorArray ) {
+        [arr addObject:(id)color.CGColor];
+    }
+    //生成透明图片阴影
+    UIGraphicsBeginImageContextWithOptions(size, YES, 1);
+    //获取图形上下文
+    CGContextRef context=UIGraphicsGetCurrentContext();
+    //当前图形入栈
+    CGContextSaveGState(context);
+    //
+    CGColorSpaceRef colorSpace=CGColorGetColorSpace([[colorArray lastObject] CGColor]);
+    //
+    CGGradientRef gardient=CGGradientCreateWithColors(colorSpace, (CFArrayRef)arr, NULL);
+    CGPoint start;
+    CGPoint end;
+    
+    //从上到下
+    if (direction == 0) {
+        start=CGPointMake(0, 0);
+        end=CGPointMake(0, size.height);
+    } else {
+        //从左到右
+        start=CGPointMake(0, 0);
+        end=CGPointMake(size.width, 0);
+    }
+    //------从右上到左下-----
+//    start=CGPointMake(size.width, 0);
+//    end=CGPointMake(0, size.height);
+    
+    CGContextDrawLinearGradient(context, gardient, start, end, kCGGradientDrawsBeforeStartLocation|kCGGradientDrawsAfterEndLocation);
+    UIImage *image=UIGraphicsGetImageFromCurrentImageContext();
+    //资源释放
+    CGGradientRelease(gardient);
+    CGContextRelease(context);
+    CGColorSpaceRelease(colorSpace);
+    //结束
+    UIGraphicsEndImageContext();
+    return image;
+}
+
+
+
+
+
 @end

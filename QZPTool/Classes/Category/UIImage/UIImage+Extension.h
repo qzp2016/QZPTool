@@ -145,4 +145,8 @@
  *  @return 是否保存成功
  */
 + (BOOL) writeToImage:(UIImage*)aImage toFileAtPath:(NSString *)aFilePath;
+
+///2种渐变颜色的生成图片 direction =0 从上到下 =1 从左到右
++ (UIImage *) imageForColors:(NSArray *) colorArray withSize: (CGSize) size direction:(NSInteger) direction;
+
 @end

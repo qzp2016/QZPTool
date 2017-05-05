@@ -44,4 +44,22 @@
     self.layer.borderWidth = borderWidth;
 }
 
+- (UIImage *)image {
+    // 创建一个bitmap的context
+    // 并把它设置成为当前正在使用的context
+    UIGraphicsBeginImageContext(self.bounds.size);
+    CGContextRef currnetContext = UIGraphicsGetCurrentContext();
+    [self.layer renderInContext:currnetContext];
+    // 从当前context中创建一个改变大小后的图片
+    UIImage* image = UIGraphicsGetImageFromCurrentImageContext();
+    // 使当前的context出堆栈
+    UIGraphicsEndImageContext();
+    return image;
+}
+- (void)addBottomLineWithColor:(UIColor *)color {
+    CALayer * separatorl = [CALayer layer];
+    separatorl.frame = CGRectMake(0, CGRectGetHeight(self.frame)-1, CGRectGetWidth(self.frame), 1);
+    separatorl.backgroundColor = color.CGColor;
+    [self.layer addSublayer: separatorl];
+}
 @end
