@@ -30,6 +30,7 @@
 #import "UIImage+Extension.h"
 
 #import "UIAlertView+Block.h"
+#import "UIColor+HEX.h"
 
 
 #endif /* QZPToolHeader_h */
