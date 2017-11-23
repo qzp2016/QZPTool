@@ -20,6 +20,8 @@ NSString * changeDate(NSString * formatter, NSString * dateStr, NSString * oldFo
 //根据当前时间生成唯一标示符
 NSString* getIdentifierByTime();
 
+///时间比较， 时间1>时间2 1 ， == 0 ，小于 -1
+NSInteger compareDate(NSString * aDate1, NSString * aDate2);
 
 
 

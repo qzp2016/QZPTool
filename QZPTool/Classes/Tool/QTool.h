@@ -35,6 +35,7 @@ BOOL haveChinese(NSString *str);
 
 
 
+
 /**
  *  只能输入数字和一个小数点
  *

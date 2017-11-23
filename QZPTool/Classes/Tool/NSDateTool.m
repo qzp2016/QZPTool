@@ -62,6 +62,29 @@ NSString* getIdentifierByTime(){
     return cur;
 }
 
+NSInteger compareDate(NSString * aDate1, NSString * aDate2) {
+    NSInteger aa;
+    NSDateFormatter *dateformater = [[NSDateFormatter alloc] init];
+    [dateformater setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *dta = [[NSDate alloc] init];
+    NSDate *dtb = [[NSDate alloc] init];
+    
+    dta = [dateformater dateFromString:aDate1];
+    dtb = [dateformater dateFromString:aDate2];
+    NSComparisonResult result = [dta compare:dtb];
+    if (result==NSOrderedSame)
+    {
+        aa = 0;
+    }else if (result==NSOrderedAscending)
+    {
+        aa=1;
+    }else if (result==NSOrderedDescending)
+    {
+        aa=-1;
+    }
+    
+    return aa;
+}
 
 
 
