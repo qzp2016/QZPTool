@@ -32,5 +32,7 @@
 #import "UIAlertView+Block.h"
 #import "UIColor+HEX.h"
 
+#import "UITextField+BackgroundView.h"
+
 
 #endif /* QZPToolHeader_h */
