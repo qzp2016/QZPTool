@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "QZPTool"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "this is test tool for QZPTool."
 
   # This description is used to generate tags and improve search results.

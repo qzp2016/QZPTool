@@ -16,7 +16,7 @@
 #define IPAD  ([[UIScreen mainScreen] bounds].size.height == 1024)
 
 
-#define UUID [[[UIDevice currentDevice] identifierForVendor] UUIDString]
+#define Q_UUID [[[UIDevice currentDevice] identifierForVendor] UUIDString]
 #define QPWeak(type)  __weak typeof(type) weak##type = type;
 #define QPStrong(type)  __strong typeof(type) type = weak##type;
 #ifdef DEBUG
